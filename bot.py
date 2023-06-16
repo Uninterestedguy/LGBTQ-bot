@@ -210,10 +210,16 @@ def send_message(message):
         
 def respond(message):
     for key in range(0,len(patterns)):
-        if message in patterns[key][0]:
+        if message.lower() in patterns[key][0]:
             response=patterns[key][1][random.randint(0,len(patterns[key][1]))]
     return response
 
-send_message(input("Let's chat \n"))
+while(check):
+        message = input("Let's chat \n")
+        if message.lower()!='exit':
+                send_message(message)
+        else:
+                print("Hope to see you again")
+                check=False
 
 
