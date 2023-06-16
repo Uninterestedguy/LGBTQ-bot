@@ -214,6 +214,7 @@ def respond(message):
             response=patterns[key][1][random.randint(0,len(patterns[key][1]))]
     return response
 
+check=True
 while(check):
         message = input("Let's chat \n")
         if message.lower()!='exit':
