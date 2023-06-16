@@ -202,15 +202,18 @@ patterns=[
                 "To find a trans-friendly doctor, consider reaching out to local LGBTQ organizations or support groups for recommendations. It's also important to research potential providers and ask questions about their experience working with transgender patients.",
                 "Transgender people may face unique health concerns, such as gender dysphoria and discrimination from healthcare providers. It's important to seek out providers who are knowledgeable about transgender health issues and affirming of your gender identity."
             ]]]
-send_message(input("Let's chat"))
-
-def respond(message):
-    for key in intents.keys():
-        if message in key:
-            random.choice(intents[key])
-    return response
 
 def send_message(message):
     print(user_template.format(message))
     response = respond(message) 
     print(bot_template.format(response))
+        
+def respond(message):
+    for key in range(0,len(patterns)):
+        if message in patterns[key][0]:
+            response=patterns[key][1][random.randint(0,len(patterns[key][1]))]
+    return response
+
+send_message(input("Let's chat \n"))
+
+
