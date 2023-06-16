@@ -212,6 +212,8 @@ def respond(message):
     for key in range(0,len(patterns)):
         if message.lower() in patterns[key][0]:
             response=patterns[key][1][random.randint(0,len(patterns[key][1]))]
+        else:
+                response="Sorry I could not get you"
     return response
 
 check=True
