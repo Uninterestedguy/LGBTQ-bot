@@ -272,10 +272,10 @@ def query_search(message):
     doc = nlp(message)
     entity_list=list([[ent.txt, ent.label_] for ent in doc.ents])
     for ent in doc.ents:
-        if (ent.txt.lower() in gender or ent.txt.lower() == 'gender')  and re.search(r"(explain|describe|elaborate|tell|say)",message.lower()) is not None:
+        if (ent.txt.lower() in gender or ent.txt.lower() == 'gender')  and re.search(r"(explain|describe|elaborate|tell|say|what|\.are|\. are|\.is |\.can|\. can|?|\.could|\. could|which|where|\.were|\. were )",message.lower()) is not None:
             gender_query(ent.txt)
             break
-        if (ent.label_ == 'ORG' and  re.search(r"(explain|describe|elaborate|tell|say|what|are there|is there)",message.lower()) is not None) or (re.search(r"(community|group|events|celebration|venue|celebrate)",ent.txt.lower()) isnot None):
+        if (ent.label_ == 'ORG' and  re.search(r"(explain|describe|elaborate|tell|say|what|\.are|\. are|\.is |\.can|\. can|?|\.could|\. could|which|where|\.were|\. were  )",message.lower()) is not None) or (re.search(r"(community|group|events|celebration|venue|celebrate)",ent.txt.lower()) isnot None):
             community_or_event(doc)
             break
 
