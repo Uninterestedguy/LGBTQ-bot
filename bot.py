@@ -229,16 +229,18 @@ def community_or_event(doc):
     loc_presence = False
     for ent in entity_list:
         if ent[0] in communities:
-            comm_presence=True
+            comm_presence=True 
             community=ent[0]
         if ent[1] == "GPE":
             loc_presence = True
             location=ent[0]
     if loc_presence:
         if comm_presence:
-            comm_query(location,community)
+            comm_query(Location=location,Communication=community)
         else:
-            comm_query(location)
+            comm_query(Location=location)
+     elif(comm_presence):
+             comm_queru(Community=community)
     event_presence = False
     loc_presence = False
     for ent in entity_list:
@@ -250,9 +252,11 @@ def community_or_event(doc):
             location=ent[0]
     if loc_presence:
         if event_presence:
-            event_query(location,event)
+            event_query(Location=location,Event=event)
         else:
-            event_query(location)
+            event_query(Location=location)
+    elif event_presence:
+            event_query(Event=event)
 
 
 
