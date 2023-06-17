@@ -221,11 +221,11 @@ def send_message(message):
 def respond(message):
     for key in range(0,len(patterns)):
         if message.lower() in patterns[key][0]:
-            response=patterns[key][1][random.randint(0,len(patterns[key][1]))]
+            response=patterns[key][1][random.randint(0,len(patterns[key][1])-1)]
             break;
         for text in patterns[key][0]:
                 if  nlp(message).similarity(nlp(text)) > 6:
-                        response=patterns[key][1][random.randint(0,len(patterns[key][1]))]
+                        response=patterns[key][1][random.randint(0,len(patterns[key][1]-1))]
                 else:
                         response="Sorry I could not get you"
                         query_search(message)
@@ -278,10 +278,10 @@ def community_or_event(doc):
 
 def query_search(message):
     doc = nlp(message)
-    entity_list=[[ent.txt, ent.label_] for ent in doc.ents]
+    entity_list=[[ent.text, ent.label_] for ent in doc.ents]
     for ent in doc.ents:
-        if (ent.txt.lower() in gender or ent.txt.lower() == 'gender')  and re.search(r"(explain|describe|elaborate|tell|say|what|\.are|\. are|\.is |\.can|\. can|?|\.could|\. could|which|where|\.were|\. were )",message.lower()) is not None:
-            DataBase.gender_query(ent.txt)
+        if (ent.text.lower() in gender or ent.text.lower() == 'gender')  and re.search(r"(explain|describe|elaborate|tell|say|what|\.are|\. are|\.is |\.can|\. can|?|\.could|\. could|which|where|\.were|\. were )",message.lower()) is not None:
+            DataBase.gender_query(ent.text)
             break
         if (ent.label_ == 'ORG' and  re.search(r"(explain|describe|elaborate|tell|say|what|\.are|\. are|\.is |\.can|\. can|?|\.could|\. could|which|where|\.were|\. were  )",message.lower()) is not None) or (re.search(r"(community|group|events|celebration|venue|celebrate)",ent.txt.lower()) is not None):
             community_or_event(doc)
