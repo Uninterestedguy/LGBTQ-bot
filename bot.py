@@ -215,7 +215,7 @@ patterns=[
 
 def send_message(message):
     print(user_template.format(message))
-    response = respond(message) 
+    response = respond(message)
     print(bot_template.format(response))
         
 def respond(message):
