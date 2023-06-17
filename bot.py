@@ -2,6 +2,7 @@ import re
 import random
 import spacy
 import DataBase
+import cohere
 
 nlp = spacy.load("en_core_web_sm")
 entity_list = []
@@ -236,7 +237,7 @@ def community_or_event(doc):
     loc_presence = False
     for ent in entity_list:
         if ent[0] in all_communities:
-            comm_presence=True 
+            comm_presence = True
             community=ent[0]
         if ent[1] == "GPE":
             loc_presence = True
