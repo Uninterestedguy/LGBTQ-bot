@@ -9,3 +9,5 @@ database = cluster['UniteBot']
 # Collections
 communities = database["Communities"]
 events = database["Events"]
+
+distinctvalues = events.distinct("description")
