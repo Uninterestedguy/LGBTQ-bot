@@ -1,6 +1,7 @@
-import random
+import re
 import random
 import spacy
+import DataBase
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -222,12 +223,52 @@ def respond(message):
                 response="Sorry I could not get you"
     return response
 
+
+def community_or_event(doc):
+    comm_presence = False
+    loc_presence = False
+    for ent in entity_list:
+        if ent[0] in communities:
+            comm_presence=True
+            community=ent[0]
+        if ent[1] == "GPE":
+            loc_presence = True
+            location=ent[0]
+    if loc_presence:
+        if comm_presence:
+            comm_query(location,community)
+        else:
+            comm_query(location)
+    event_presence = False
+    loc_presence = False
+    for ent in entity_list:
+        if ent[0] in events:
+            event_presence=True
+            event=ent[0]
+        if ent[1] == "GPE":
+            loc_presence = True
+            location=ent[0]
+    if loc_presence:
+        if event_presence:
+            event_query(location,event)
+        else:
+            event_query(location)
+
+
+
+    
+    
+
 def query_search(message):
-    doc = nlp(message)
+    global doc = nlp(message)
+    global entity_list=list([[ent.txt, ent.label_] for ent in doc.ents])
     for ent in doc.ents:
-        if ent.txt.lower() in gender and ent.txt.lower() in ["explain","describe","elaborate","tell","say"]:
+        if ent.txt.lower() in gender and re.search(r"(explain|describe|elaborate|tell|say)",message.lower()) is not None:
             gender_query(ent.txt)
-            break;
+            break
+        if (ent.label_ == 'ORG' and  re.search(r"(explain|describe|elaborate|tell|say|what|are there|is there)",message.lower()) is not None) or (re.search(r"(community|group|events|celebration|venue|celebrate)",ent.txt.lower() isnot None):
+            community_or_event(doc)
+            break
 
 check=True
 while(check):
