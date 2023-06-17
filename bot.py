@@ -277,7 +277,7 @@ def community_or_event(doc):
 
 def query_search(message):
     doc = nlp(message)
-    entity_list=list([[ent.txt, ent.label_] for ent in doc.ents])
+    entity_list=[[ent.txt, ent.label_] for ent in doc.ents]
     for ent in doc.ents:
         if (ent.txt.lower() in gender or ent.txt.lower() == 'gender')  and re.search(r"(explain|describe|elaborate|tell|say|what|\.are|\. are|\.is |\.can|\. can|?|\.could|\. could|which|where|\.were|\. were )",message.lower()) is not None:
             DataBase.gender_query(ent.txt)
