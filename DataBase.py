@@ -12,3 +12,6 @@ events = database["Events"]
 genders= database["Genders"]
 
 distinctvalues = events.distinct("description")
+
+def gender_query(gender):
+    db.Genders.find({'Gender':gender})
