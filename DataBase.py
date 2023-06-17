@@ -6,8 +6,9 @@ cluster = pymongo.MongoClient("mongodb+srv://Vishan:harsha@unitebot.jmii40m.mong
 # UniteBot Database
 database = cluster['UniteBot']
 
-# Collections
+# Collections i.e tables
 communities = database["Communities"]
 events = database["Events"]
+genders= database["Genders"]
 
 distinctvalues = events.distinct("description")
