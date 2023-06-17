@@ -226,6 +226,7 @@ def respond(message):
                         response=patterns[key][1][random.randint(0,len(patterns[key][1]))]
                 else:
                         response="Sorry I could not get you"
+                        query_search(message)
     return response
 
 
@@ -247,21 +248,26 @@ def community_or_event(doc):
     elif(comm_presence):
              comm_query(community)
     event_presence = False
-    loc_presence = False
+    location_presence = False
     for ent in entity_list:
         if ent[0] in all_events:
             event_presence=True
             event=ent[0]
         if ent[1] == "GPE":
-            loc_presence = True
+            location_presence = True
             location=ent[0]
-    if loc_presence:
+    if location_presence:
         if event_presence:
             event_query(location,event)
         else:
             event_query(location)
     elif event_presence:
             event_query(event)
+
+    if (not comm_presence and not loc_presence) and (not event_presence and not  location_presence):
+            coh(message)
+
+
 
 
 
