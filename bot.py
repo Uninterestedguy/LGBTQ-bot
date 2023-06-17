@@ -245,7 +245,7 @@ def community_or_event(doc):
         else:
             comm_query(location)
     elif(comm_presence):
-             comm_queru(community)
+             comm_query(community)
     event_presence = False
     loc_presence = False
     for ent in entity_list:
