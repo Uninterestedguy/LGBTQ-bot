@@ -11,8 +11,6 @@ communities = db["Communities"]
 events = db["Events"]
 genders= db["Genders"]
 
-distinctvalues = events.distinct("description")
-
 def gender_query(gender):
     db.Genders.find({'Gender':gender})
 
