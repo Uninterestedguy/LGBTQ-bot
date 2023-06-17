@@ -1,7 +1,11 @@
 import random
 import random
 import spacy
+
 nlp = spacy.load("en_core_web_sm")
+
+
+gender=['male', 'female', 'transgender ', 'trans', 'cisgender ', 'cis', 'nonbinary', 'non binary', 'genderqueer', 'gender queer', 'queer', 'agender', 'genderfluid', 'gender fluid', 'bigender', 'bi gender', 'twospirit', 'two spirit', 'androgynous', 'neutrois', 'demigender', 'demi gender','genderquestioning', 'gender questioning', 'gendernonconfirming', 'gender nonconforming', 'pangender', 'pan gender','thirdgender', 'third gender', 'genderflux', 'gender flux', 'intergender', 'inter gender', 'multigender', 'multi gender', 'polygender', 'poly gender', 'gender variant', 'two souled', 'gender expansive', 'gendervague', 'gender vague', 'femme', 'butch', 'genderfluid femme', 'gender fluid femme', 'genderfluid butch', 'gender fluid butch', 'demiboy', 'demi boy', 'demigirl', 'demi girl', 'agenderflux', 'agender flux', 'genderqueer femme', 'gender queer femme', 'genderqueer butch', 'gender queer butch', 'gender neutral', 'bi genderqueer', 'bi gender queer', 'trigender', 'tri gender', 'graygender', 'gray gender', 'trans masculine', 'transmasculine','trans feminine', 'transfeminine', 'androgyne', 'fluxgender', 'flux gender', 'maverique', 'null gender', 'vapogender', 'vapo gender', 'libragender', 'libra gender', 'aporagender', 'apora gender', 'ambonec', 'genderfae', 'faegender', 'fae gender', 'epigender', 'epi gender', 'genderfluid demigirl', 'gender fluid demigirl', 'genderfluid demi girl', 'genderfluid demiboy', 'gender fluid demiboy', 'genderfluid demi boy', 'juxera', 'novigender', 'proxvir', 'quoigender', 'venusgender', 'xenogender', 'zerogender', 'demiflux', 'echogender', 'quoi gender', 'venus gender', 'xeno gender', 'zero gender', 'demi flux', 'echo gender', 'gender questioning', 'gender nonbinary', 'abimegender', 'astralgender', 'autigender', 'caelgender', 'deliciagender', 'demifluid', 'enbyfluid', 'fictigender', 'glimragender', 'librafeminine', 'lunagender', 'abime gender', 'astral gender', 'auti gender', 'cael gender', 'delicia gender', 'demi fluid', 'enby fluid', 'ficti gender', 'glimra gender', 'libra feminine', 'luna gender', 'masculine of center', 'mascfluid', 'mirrorgender', 'paragender', 'stellargender', 'masc fluid', 'mirror gender', 'para gender', 'stellar gender']
 
 bot_template = "Unite_Bot : {0}"
 user_template = "User : {0}"
@@ -217,6 +221,13 @@ def respond(message):
         else:
                 response="Sorry I could not get you"
     return response
+
+def query_search(message):
+    doc = nlp(message)
+    for ent in doc.ents:
+        if ent.txt.lower() in gender and ent.txt.lower() in ["explain","describe","elaborate","tell","say"]:
+            gender_query(ent.txt)
+            break;
 
 check=True
 while(check):
