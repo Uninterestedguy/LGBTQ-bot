@@ -1,5 +1,7 @@
 import random
-
+import random
+import spacy
+nlp = spacy.load("en_core_web_sm")
 
 bot_template = "Unite_Bot : {0}"
 user_template = "User : {0}"
