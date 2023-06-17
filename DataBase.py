@@ -12,22 +12,22 @@ events = db["Events"]
 genders= db["Genders"]
 
 def gender_query(gender):
-    db.Genders.find({'Gender':gender})
+    qr=db.Genders.find({'Gender':gender})
 
 def comm_query(Location,Community):
-    db.Communities.find({'City of Organization/Program':Location,'Name of Organization/Program':Community})
+    qr=db.Communities.find({'City of Organization/Program':Location,'Name of Organization/Program':Community})
 
 def comm_query(Location):
-    db.Communities.find({'City of Organization/Program':Location})
+    qr=db.Communities.find({'City of Organization/Program':Location})
 
 def comm_query(Community):
-    db.Communities.find({'Name of Organization/Program':Community})
+    qr=db.Communities.find({'Name of Organization/Program':Community})
 
 def event_query(Location,Event):
-    db.Events.find({'description':Event,'location':Location})
+    qr=db.Events.find({'description':Event,'location':Location})
 
 def event_query(Location):
-    db.Events.find({'location':Location})
+    qr=db.Events.find({'location':Location})
 
 def event_query(Event):
-    db.Events.find({'description':Event})
+    qr=db.Events.find({'description':Event})
