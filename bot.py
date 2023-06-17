@@ -286,6 +286,7 @@ def query_search(message):
         if (ent.label_ == 'ORG' and  re.search(r"(explain|describe|elaborate|tell|say|what|\.are|\. are|\.is |\.can|\. can|?|\.could|\. could|which|where|\.were|\. were  )",message.lower()) is not None) or (re.search(r"(community|group|events|celebration|venue|celebrate)",ent.text.lower()) is not None):
             community_or_event(doc)
             break
+        
 
 check=True
 while(check):

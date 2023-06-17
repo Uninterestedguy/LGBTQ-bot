@@ -12,7 +12,9 @@ events = db["Events"]
 genders= db["Genders"]
 
 def gender_query(gender):
-    qr=db.Genders.find({'Gender':gender})
+    qr=db.Genders.find({'Gender':gender},{"Description":1,"_id":0})
+    data=[j for j in qr]
+    print(data[0]["Description"])
 
 def comm_query(Location,Community):
     qr=db.Communities.find({'City of Organization/Program':Location,'Name of Organization/Program':Community})
