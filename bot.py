@@ -236,11 +236,11 @@ def community_or_event(doc):
             location=ent[0]
     if loc_presence:
         if comm_presence:
-            comm_query(Location=location,Communication=community)
+            comm_query(location,community)
         else:
-            comm_query(Location=location)
+            comm_query(location)
      elif(comm_presence):
-             comm_queru(Community=community)
+             comm_queru(community)
     event_presence = False
     loc_presence = False
     for ent in entity_list:
@@ -252,11 +252,11 @@ def community_or_event(doc):
             location=ent[0]
     if loc_presence:
         if event_presence:
-            event_query(Location=location,Event=event)
+            event_query(location,event)
         else:
-            event_query(Location=location)
+            event_query(location)
     elif event_presence:
-            event_query(Event=event)
+            event_query(event)
 
 
 
