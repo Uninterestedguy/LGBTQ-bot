@@ -17,20 +17,20 @@ def gender_query(gender):
     print(data[0]["Description"])
 
 def comm_query(Location,Community):
-    qr=db.Communities.find({'City of Organization/Program':Location,'Name of Organization/Program':Community})
+    qr=db.Communities.find({'City of Organization/Program':Location.capitalize(),'Name of Organization/Program':Community},{})
+
 
 def comm_query(Location):
-    qr=db.Communities.find({'City of Organization/Program':Location})
+    qr=db.Communities.find({'City of Organization/Program':Location.capitalize()})
 
 def comm_query(Community):
     qr=db.Communities.find({'Name of Organization/Program':Community})
 
 def event_query(Location,Event):
-    qr=db.Events.find({'description':Event,'location':Location})
+    qr=db.Events.find({'description':Event,'location':Location.capitalize()})
 
 def event_query(Location):
-    qr=db.Events.find({'location':Location})
+    qr=db.Events.find({'location':Location.capitalize()})
 
 def event_query(Event):
     qr=db.Events.find({'description':Event})
-
