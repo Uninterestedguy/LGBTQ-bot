@@ -237,8 +237,8 @@ def respond(message):
                 should_query_be_done=False
                 return response
                 break
-        if should_query_be_done:
-                query_search(message)
+    if should_query_be_done:
+        query_search(message)
 
             
     
