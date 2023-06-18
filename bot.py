@@ -7,7 +7,7 @@ import discord
 
 intents = discord.Intents.default()
 bot = discord.Client(intents=intents)
-TOKEN = 'MTExOTk2MDkyOTI3NTIxNTk5Mw.GWmn-Y.uQtBCG_XokcHh6eVz7hJkFP-oNC0igBR8OQGN8'
+TOKEN = 'MTExOTk2MDkyOTI3NTIxNTk5Mw.GebfQq.ZM3MgYakASX9mxgtROf8loJRKTL_ubtWcIIcuM
 
 
 @bot.event
