@@ -299,14 +299,6 @@ def query_search(message):
             break
 
 
-check=True
-while(check):
-        message = input("Let's chat \n")
-        if message.lower()!='exit':
-                send_message(message)
-        else:
-                print("Hope to see you again")
-                check=False
 def coh(msg):
         co = cohere.Client('') # Enter your CoHere API key
         response_coh = co.generate(model='command',prompt=msg,max_tokens=300,temperature=0.9,k=0,stop_sequences=[],return_likelihoods='NONE')

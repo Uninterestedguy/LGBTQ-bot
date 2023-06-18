@@ -3,14 +3,17 @@ import bot
 
 app = Flask(__name__)
 
-@app.route('/',methods=["POST"])
+@app.route('/',methods=["GET","POST"])
 def home(): 
         if request.method == "POST":
-               message = request.form["message"]
-               output = bot.send_message(message)
-               return jsonify({"output": output})
-        return render_template('home.html')
+               check=True
+               while(check):
+                message = request.form["message"]
+                output = bot.send_message(message)
+                return jsonify({"output": output})
+        return render_template('index.html')
+
 
 if __name__=='__main__':
-        app.run()
+        app.run(debug=True)
 
