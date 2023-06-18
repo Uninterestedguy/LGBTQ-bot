@@ -6,10 +6,6 @@ cluster = pymongo.MongoClient("mongodb+srv://Vishan:harsha@unitebot.jmii40m.mong
 # UniteBot Database
 db = cluster['UniteBot']
 
-# Collections i.e tables
-communities = db["Communities"]
-events = db["Events"]
-genders= db["Genders"]
 
 def gender_query(gender):
     qr=db.Genders.find({'Gender':gender.capitalize()},{"Description":1,"_id":0})
@@ -17,20 +13,20 @@ def gender_query(gender):
     print(data[0]["Description"])
 
 def comm_query(Location,Community):
-    qr=db.Communities.find({'City of Organization/Program':Location.capitalize(),'Name of Organization/Program':Community},{})
+    qr=db.Communities.find({'City of Organization/Program':Location.lower(),'Name of Organization/Program':Community},{})
 
 
 def comm_query(Location):
-    qr=db.Communities.find({'City of Organization/Program':Location.capitalize()})
+    qr=db.Communities.find({'City of Organization/Program':Location.lower()})
 
 def comm_query(Community):
     qr=db.Communities.find({'Name of Organization/Program':Community})
 
 def event_query(Location,Event):
-    qr=db.Events.find({'description':Event,'location':Location.capitalize()})
+    qr=db.Events.find({'description':Event,'location':Location.lower()})
 
 def event_query(Location):
-    qr=db.Events.find({'location':Location.capitalize()})
+    qr=db.Events.find({'location':Location.lower()})
 
 def event_query(Event):
     qr=db.Events.find({'description':Event})
