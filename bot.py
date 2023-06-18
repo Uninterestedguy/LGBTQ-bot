@@ -215,9 +215,8 @@ patterns=[
             ]]]
 
 def send_message(message):
-    print(user_template.format(message))
     response = respond(message)
-    print(bot_template.format(response))
+    return response
         
 def respond(message):
     should_query_be_done=True
