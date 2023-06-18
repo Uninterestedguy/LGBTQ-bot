@@ -18,15 +18,16 @@ patterns=[
                 "hi",
                 "hello",
                 "hey",
-                "what's up",
-                "how are you"
             ],[
                 "Hi there!",
                 "Hello, how can I assist you today?",
                 "Hey, what's on your mind?",
-                "Not much, how about you?",
-                "I'm doing well, thanks for asking!"
             ]],
+        [[ "what's up",
+                "how are you"],
+        ["Not much, how about you?",
+                "I'm doing well, thanks for asking!"]]
+         
         [[
                 "bye",
                 "goodbye",
@@ -299,6 +300,7 @@ while(check):
                 check=False
 def coh(msg):
         co = cohere.Client('') # Enter your CoHere API key
-        response = co.generate(model='command',prompt=msg,max_tokens=300,temperature=0.9,k=0,stop_sequences=[],return_likelihoods='NONE')
-        return('Prediction: {}'.format(response.generations[0].text))
+        response_coh = co.generate(model='command',prompt=msg,max_tokens=300,temperature=0.9,k=0,stop_sequences=[],return_likelihoods='NONE')
+        response=('Prediction: {}'.format(response_coh.generations[0].text))
+        return response
 
