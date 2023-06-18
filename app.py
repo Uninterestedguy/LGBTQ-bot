@@ -7,7 +7,7 @@ app = Flask(__name__)
 def home{}: 
         if request.method == "POST":
                message = request.form["message"]
-               output = send_message(message)
+               output = bot.send_message(message)
                return jsonify({"output": output})
        return render_template('home.html')
 
