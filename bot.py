@@ -3,19 +3,6 @@ import random
 import spacy
 import DataBase
 import cohere
-import discord
-
-intents = discord.Intents.default()
-bot = discord.Client(intents=intents)
-TOKEN = 'MTExOTk2MDkyOTI3NTIxNTk5Mw.GebfQq.ZM3MgYakASX9mxgtROf8loJRKTL_ubtWcIIcuM
-
-
-@bot.event
-async def on_ready():
-    print(f'Bot connected as {bot.user}')
-
-
-bot.run(TOKEN)
 
 nlp = spacy.load("en_core_web_lg")
 entity_list = []
@@ -419,13 +406,14 @@ def query_search(message):
             break
 
 
-async def on_message(message):
-    if message.content == 'hello':
-        await message.channel.send('Hello!')
-    else:
-        await message.channel.send(send_message(message.content))
-
-
+check=True
+while(check):
+        message = input("Let's chat \n")
+        if message.lower()!='exit':
+                send_message(message)
+        else:
+                print("Hope to see you again")
+                check=False
 def coh(msg):
     co = cohere.Client('')  # Enter your CoHere API key
     response_coh = co.generate(model='command', prompt=msg, max_tokens=300, temperature=0.9, k=0, stop_sequences=[],
