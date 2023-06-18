@@ -3,11 +3,9 @@ import bot
 
 app = Flask(__name__)
 
-@app.route('/',methods=["GET","POST"])
+@app.route('/index',methods=["GET","POST"])
 def home(): 
         if request.method == "POST":
-               check=True
-               while(check):
                 message = request.form["message"]
                 output = bot.send_message(message)
                 return jsonify({"output": output})
