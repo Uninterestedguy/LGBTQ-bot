@@ -18,15 +18,16 @@ patterns=[
                 "hi",
                 "hello",
                 "hey",
-                "what's up",
-                "how are you"
             ],[
                 "Hi there!",
                 "Hello, how can I assist you today?",
                 "Hey, what's on your mind?",
-                "Not much, how about you?",
-                "I'm doing well, thanks for asking!"
             ]],
+        [[ "what's up",
+                "how are you"],
+        ["Not much, how about you?",
+                "I'm doing well, thanks for asking!"]]
+         
         [[
                 "bye",
                 "goodbye",
