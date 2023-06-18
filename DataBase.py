@@ -12,7 +12,7 @@ events = db["Events"]
 genders= db["Genders"]
 
 def gender_query(gender):
-    qr=db.Genders.find({'Gender':gender.lower()},{"Description":1,"_id":0})
+    qr=db.Genders.find({'Gender':gender.capitalize()},{"Description":1,"_id":0})
     data=[j for j in qr]
     print(data[0]["Description"])
 
@@ -33,3 +33,4 @@ def event_query(Location):
 
 def event_query(Event):
     qr=db.Events.find({'description':Event})
+
