@@ -225,17 +225,7 @@ def respond(message):
             response=patterns[key][1][random.randint(0,len(patterns[key][1])-1)]
             should_query_be_done=False
             return response
-            break;
-        for text in patterns[key][0]:
-            message_doc = nlp(message)
-            text_doc = nlp(text)
-            if message_doc and text_doc:
-                similarity_score=message_doc.similarity(text_doc)
-            if  similarity_score >= 0.6:
-                response=patterns[key][1][random.randint(0,len(patterns[key][1]-1))]
-                should_query_be_done=False
-                return response
-                break
+            break
     if should_query_be_done:
         query_search(message)
 
