@@ -9,7 +9,7 @@ def home():
                message = request.form["message"]
                output = bot.send_message(message)
                return jsonify({"output": output})
-       return render_template('home.html')
+        return render_template('home.html')
 
 if __name__=='__main__':
         app.run()
