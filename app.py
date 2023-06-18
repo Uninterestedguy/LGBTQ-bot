@@ -1,16 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 import bot
 
 app = Flask(__name__)
 
 @app.route('/',methods=["POST"])
-def home{}: 
+def home(): 
         if request.method == "POST":
                message = request.form["message"]
                output = bot.send_message(message)
                return jsonify({"output": output})
-       return render_template('home.html')
+        return render_template('home.html')
 
 if __name__=='__main__':
-        app.run
+        app.run()
 
