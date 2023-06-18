@@ -300,6 +300,7 @@ while(check):
                 check=False
 def coh(msg):
         co = cohere.Client('') # Enter your CoHere API key
-        response = co.generate(model='command',prompt=msg,max_tokens=300,temperature=0.9,k=0,stop_sequences=[],return_likelihoods='NONE')
-        return('Prediction: {}'.format(response.generations[0].text))
+        response_coh = co.generate(model='command',prompt=msg,max_tokens=300,temperature=0.9,k=0,stop_sequences=[],return_likelihoods='NONE')
+        response=('Prediction: {}'.format(response_coh.generations[0].text))
+        return response
 
