@@ -26,7 +26,7 @@ patterns=[
         [[ "what's up",
                 "how are you"],
         ["Not much, how about you?",
-                "I'm doing well, thanks for asking!"]]
+                "I'm doing well, thanks for asking!"]],
          
         [[
                 "bye",
