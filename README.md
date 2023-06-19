@@ -1,7 +1,7 @@
 # Promoting Understanding and Empathy through LGBTQ+ Community Data and Analysis
 
 ## Introduction
-Welcome to the LGBTQ+ Community Data and Analysis repository! This repository houses various datasets and code related to the LGBTQ+ (Lesbian, Gay, Bisexual, Transgender, Queer/Questioning, and others) community. Here, you will find a collection of datasets, tools, and analyses aimed at promoting understanding, advocacy, and research surrounding LGBTQ+ issues.
+Welcome to the LGBTQ+ Community Data and Analysis repository! This repository houses various datasets and code related to the LGBTQ+ (Lesbian, Gay, Bisexual, Transgender, Queer/Questioning, and others) community. Here, you will find a collection of datasets, tools, and analyses aimed at promoting understanding, advocacy, and research surrounding LGBTQ+ issues
 
 ## Repository Structure
 The repository is organized as follows:
