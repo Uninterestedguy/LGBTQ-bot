@@ -19,6 +19,7 @@ def comm_query(Location,Community):
 
 def comm_query(Location):
     qr=db.Communities.find({'City of Organization/Program':Location.lower()})
+    data=[j for j in qr]
 
 def comm_query(Community):
     qr=db.Communities.find({'Name of Organization/Program':Community})
