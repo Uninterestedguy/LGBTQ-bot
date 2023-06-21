@@ -14,6 +14,7 @@ def gender_query(gender):
 
 def comm_query(Location,Community):
     qr=db.Communities.find({'City of Organization/Program':Location.lower(),'Name of Organization/Program':Community},{})
+    data=[j for j in qr]
 
 
 def comm_query(Location):
