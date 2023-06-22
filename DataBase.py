@@ -23,6 +23,7 @@ def comm_query(Location):
 
 def comm_query(Community):
     qr=db.Communities.find({'Name of Organization/Program':Community})
+    data=[j for j in qr]
 
 def event_query(Location,Event):
     qr=db.Events.find({'description':Event,'location':Location.lower()})
