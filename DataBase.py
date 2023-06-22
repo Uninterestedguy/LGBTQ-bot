@@ -31,6 +31,7 @@ def event_query(Location,Event):
 
 def event_query(Location):
     qr=db.Events.find({'location':Location.lower()})
+    data=[j for j in qr]
 
 def event_query(Event):
     qr=db.Events.find({'description':Event})
