@@ -10,7 +10,7 @@ db = cluster['UniteBot']
 def gender_query(gender):
     qr=db.Genders.find({'Gender':gender.capitalize()},{"Description":1,"_id":0})
     data=[j for j in qr]
-    print(data[0]["Description"])
+    
 
 def comm_query(Location,Community):
     qr=db.Communities.find({'City of Organization/Program':Location.lower(),'Name of Organization/Program':Community},{})
