@@ -14,4 +14,4 @@ For JS:
 7.	To run it install flask 
 8.	Then use python -m flask run in the terminal 
 9.	It will provide you with a ip address
-10.	 If you have any issues or problems please refer to the site https://code.visualstudio.com/docs/python/tutorial-flask
+10.	 If you have any issues or problems please refer to the site
